@@ -32,10 +32,12 @@
 (defvar upcase-transient-map
   (let ((map (make-sparse-keymap)))
     (define-key map [remap self-insert-command] #'upcase-self-insert-command)
-    map))
+    map)
+  "The transient keymap that will take effect.")
 
 (defvar upcase-character-map
-  #s(hash-table data (?- ?_)))
+  #s(hash-table data (?- ?_))
+  "Extra characters to switch.")
 
 (defun upcase-self-insert-command ()
   "Wrap `self-insert-command' to upcase the input character.
